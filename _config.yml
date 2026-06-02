@@ -83,6 +83,7 @@ exclude:
   - Gemfile.lock
   - README.md
   - BLOGGING.md
+  - CLAUDE.md
   - vendor
   - .github
   - node_modules
