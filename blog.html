@@ -1,0 +1,31 @@
+---
+layout: default
+title: The Journal
+permalink: /blog/
+description: Essays on preventive health, longevity and considered living — searchable and organised by the six pillars of wellness.
+body_class: journal
+---
+
+<div class="journal-layout">
+  {% include sidebar.html %}
+
+  <section class="journal-main" aria-label="Essays">
+    <header class="journal-head">
+      <p class="eyebrow">The Wellness Quotient Journal</p>
+      <h1 id="journal-heading">Essays for a considered life</h1>
+      <p class="page-subtitle">Searchable, evidence-led writing across the six pillars. Use the navigation to filter, or search by keyword.</p>
+    </header>
+
+    <p class="filter-status" id="filter-status" hidden></p>
+
+    <div class="post-grid" id="post-grid">
+      {%- for post in site.posts -%}
+        {% include post-card.html post=post %}
+      {%- endfor -%}
+    </div>
+
+    <p class="no-results" id="no-results" hidden>No essays match that filter yet. <a href="{{ '/blog/' | relative_url }}">Clear filters</a> or <a href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">ask {{ site.contact.name }}</a>.</p>
+  </section>
+</div>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>

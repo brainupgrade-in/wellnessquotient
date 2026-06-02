@@ -1,0 +1,53 @@
+{%- comment -%}
+  Reusable left-hand content navigation.
+  Used by the Journal index (blog.html) and individual posts (post layout).
+{%- endcomment -%}
+<aside class="content-nav" aria-label="Journal navigation">
+
+  <div class="nav-block nav-search">
+    <label for="post-search" class="nav-heading">Search the Journal</label>
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <input type="search" id="post-search" placeholder="Try “longevity”, “sleep”, “fasting”…" autocomplete="off" aria-controls="search-results">
+    </div>
+    <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+  </div>
+
+  <div class="nav-block">
+    <h3 class="nav-heading">The Six Pillars</h3>
+    <ul class="pillar-nav">
+      <li><a href="{{ '/blog/' | relative_url }}" class="pillar-link" data-pillar="all">All essays</a></li>
+      {%- for pillar in site.pillars -%}
+      <li>
+        <a href="{{ '/blog/' | relative_url }}?pillar={{ pillar.slug }}"
+           class="pillar-link" data-pillar="{{ pillar.slug }}">
+          {{ pillar.name }}
+          <span class="pillar-count" data-count-for="{{ pillar.slug }}"></span>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="nav-block">
+    <h3 class="nav-heading">Recent essays</h3>
+    <ul class="recent-nav">
+      {%- for post in site.posts limit:5 -%}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          <span class="recent-title">{{ post.title }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="nav-block nav-counsel">
+    <h3 class="nav-heading">Private counsel</h3>
+    <p>For discreet, personal guidance from {{ site.contact.name }}.</p>
+    <a class="counsel-btn" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">
+      Begin a conversation
+    </a>
+  </div>
+</aside>

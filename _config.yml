@@ -1,0 +1,88 @@
+# ─────────────────────────────────────────────────────────────
+#  Wellness Quotient — Jekyll configuration
+#  GitHub Pages project site: https://brainupgrade-in.github.io/wellnessquotient
+# ─────────────────────────────────────────────────────────────
+
+title: Wellness Quotient
+tagline: A considered life, well lived.
+description: >-
+  Wellness Quotient is a private journal of preventive health, longevity and
+  considered living — written for individuals who expect depth, discretion and
+  evidence over noise.
+author: Dr. Ujwala
+email: ""
+
+# Canonical location (used by sitemap.xml + SEO tags). Change both if you
+# move to a custom domain (e.g. url: "https://www.wellnessquotient.community"
+# with baseurl: "" and add a CNAME file).
+url: "https://brainupgrade-in.github.io"
+baseurl: "/wellnessquotient"
+
+lang: en
+timezone: Asia/Kolkata
+
+# ── Brand contact ────────────────────────────────────────────
+contact:
+  name: Dr. Ujwala
+  telegram_handle: DrUjwala
+  telegram_url: "https://t.me/DrUjwala"
+
+# ── The Six Pillars — used for sidebar navigation & post categories ──
+pillars:
+  - name: Food
+    slug: food
+    blurb: Nutrition as medicine, not restriction.
+  - name: Stress
+    slug: stress
+    blurb: Mastering the body's response to pressure.
+  - name: Exercise
+    slug: exercise
+    blurb: Movement engineered for a long life.
+  - name: Belongingness
+    slug: belongingness
+    blurb: Relationships as a determinant of health.
+  - name: Sleep
+    slug: sleep
+    blurb: The foundation the other five rest upon.
+  - name: Environment
+    slug: environment
+    blurb: The spaces and exposures that shape us.
+  - name: Longevity
+    slug: longevity
+    blurb: The science of healthspan, not just lifespan.
+
+# ── Build settings ───────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:slug/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# GitHub Pages whitelisted plugins (no build action required)
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      reading_pace: 220   # words per minute, for the reading-time estimate
+
+# jekyll-feed
+feed:
+  path: feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - BLOGGING.md
+  - vendor
+  - .github
+  - node_modules

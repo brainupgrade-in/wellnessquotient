@@ -1,0 +1,66 @@
+---
+layout: default
+title: Wellness Quotient — A considered life, well lived
+description: A private journal of preventive health, longevity and considered living, written for individuals who expect depth, discretion and evidence over noise.
+body_class: home
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">The Wellness Quotient Journal</p>
+    <h1 class="hero-title">Are you <em>really</em> well?</h1>
+    <p class="hero-lede">
+      Beyond being disease-free lies a quieter, rarer kind of wellness — built deliberately,
+      pillar by pillar. This is a journal for those who measure life in decades of vitality,
+      not quarters of treatment.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">Read the Journal</a>
+      <a class="btn btn-ghost" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">Speak with {{ site.contact.name }}</a>
+    </div>
+  </div>
+  <div class="hero-rule" aria-hidden="true"></div>
+</section>
+
+<section class="pillars">
+  <div class="section-head">
+    <p class="eyebrow">The Framework</p>
+    <h2>Six pillars of a well-lived life</h2>
+    <p class="section-lede">Every essay we publish strengthens one of these foundations. Wellness is not a single decision — it is the compounding of six.</p>
+  </div>
+  <div class="pillar-grid">
+    {%- for pillar in site.pillars -%}
+    <a class="pillar-card" href="{{ '/blog/' | relative_url }}?pillar={{ pillar.slug }}">
+      <span class="pillar-index">0{{ forloop.index }}</span>
+      <h3>{{ pillar.name }}</h3>
+      <p>{{ pillar.blurb }}</p>
+      <span class="pillar-arrow" aria-hidden="true">→</span>
+    </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="latest">
+  <div class="section-head">
+    <p class="eyebrow">From the Journal</p>
+    <h2>Latest essays</h2>
+    <p class="section-lede">Considered, evidence-led writing — published when there is something worth saying.</p>
+  </div>
+  <div class="post-grid">
+    {%- for post in site.posts limit:3 -%}
+      {% include post-card.html post=post %}
+    {%- endfor -%}
+  </div>
+  <div class="latest-more">
+    <a class="btn btn-ghost" href="{{ '/blog/' | relative_url }}">Browse the full Journal →</a>
+  </div>
+</section>
+
+<section class="invitation">
+  <div class="invitation-inner">
+    <p class="eyebrow">An invitation</p>
+    <h2>We still pick up the phone.</h2>
+    <p>Wellness Quotient is, by design, for the few. When you are ready for guidance that is personal, discreet and unhurried, {{ site.contact.name }} is one message away.</p>
+    <a class="btn btn-primary" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">Begin a private conversation</a>
+  </div>
+</section>

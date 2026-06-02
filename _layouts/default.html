@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+{% include head.html %}
+<body class="{{ page.body_class }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include header.html %}
+  <main id="main">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <a href="#top" class="to-top" aria-label="Back to top">↑</a>
+  <script>
+    // Reveal back-to-top control after the fold.
+    (function () {
+      var onScroll = function () { document.body.classList.toggle("scrolled", window.scrollY > 600); };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>

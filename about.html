@@ -1,0 +1,32 @@
+---
+layout: page
+title: About
+eyebrow: The Practice
+subtitle: A quiet practice of preventive health and considered living, led by Dr. Ujwala.
+permalink: /about/
+description: About Wellness Quotient and Dr. Ujwala — preventive health, longevity and discreet, one-to-one wellness counsel.
+---
+
+<p class="lead">Wellness Quotient began with a simple, unfashionable conviction: that real health is built deliberately, over decades, in the company of someone who actually knows you.</p>
+
+<p>We are not a clinic, and we are not a wellness app. We are a small practice and a private journal — for people who have the means to optimise every part of their lives and have decided that their health deserves the same attention. The writing here is evidence-led but never clinical, personal but never loud.</p>
+
+<h2>The Six Pillars</h2>
+<p>Every essay strengthens one of six foundations of a well-lived life:</p>
+<ul class="pillar-list">
+  {%- for pillar in site.pillars -%}
+  <li><strong>{{ pillar.name }}</strong> — {{ pillar.blurb }}</li>
+  {%- endfor -%}
+</ul>
+
+<h2>Dr. Ujwala</h2>
+<p>Dr. Ujwala leads the practice and writes much of what you read here. Her approach is unhurried and discreet: fewer clients, deeper relationships, and counsel grounded in both medicine and lived wisdom. She still, as she puts it, "picks up the phone."</p>
+
+<div class="about-cta">
+  <p class="eyebrow">Private counsel</p>
+  <h3>For guidance that is personal and discreet</h3>
+  <p>If you would like to speak with Dr. Ujwala directly, you are one message away.</p>
+  <a class="btn btn-primary" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">Speak with Dr. Ujwala · @{{ site.contact.telegram_handle }}</a>
+</div>
+
+<p class="disclaimer">Wellness Quotient offers editorial guidance and education, not medical advice. For diagnosis or treatment, consult your physician.</p>

@@ -1,0 +1,67 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: page.reading_pace | plus: 1 -%}
+<div class="journal-layout">
+  {% include sidebar.html %}
+
+  <article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+    <header class="post-head">
+      {%- if page.categories.size > 0 -%}
+      <p class="post-pillar"><a href="{{ '/blog/' | relative_url }}?pillar={{ page.categories.first | downcase }}">{{ page.categories.first }}</a></p>
+      {%- endif -%}
+      <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+      {% if page.subtitle %}<p class="post-subtitle">{{ page.subtitle }}</p>{% endif %}
+      <div class="post-byline">
+        <span itemprop="author">By {{ page.author | default: site.author }}</span>
+        <span class="dot">·</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+        <span class="dot">·</span>
+        <span>{{ minutes }} min read</span>
+      </div>
+    </header>
+
+    {%- if page.image -%}
+    <figure class="post-hero">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" itemprop="image">
+      {% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}
+    </figure>
+    {%- endif -%}
+
+    <div class="prose" itemprop="articleBody">
+      {{ content }}
+    </div>
+
+    {%- if page.tags.size > 0 -%}
+    <div class="post-tags">
+      {%- for tag in page.tags -%}
+      <a href="{{ '/blog/' | relative_url }}?pillar={{ tag | downcase }}" class="tag">#{{ tag }}</a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    <div class="post-counsel">
+      <div>
+        <p class="eyebrow">Private counsel</p>
+        <p>Questions on applying this to your own life? {{ site.contact.name }} offers discreet, one-to-one guidance.</p>
+      </div>
+      <a class="counsel-btn" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">Speak with {{ site.contact.name }}</a>
+    </div>
+
+    <nav class="post-pager" aria-label="More essays">
+      {%- if page.previous -%}
+      <a class="pager-prev" href="{{ page.previous.url | relative_url }}">
+        <span>Previous</span><strong>{{ page.previous.title }}</strong>
+      </a>
+      {%- endif -%}
+      {%- if page.next -%}
+      <a class="pager-next" href="{{ page.next.url | relative_url }}">
+        <span>Next</span><strong>{{ page.next.title }}</strong>
+      </a>
+      {%- endif -%}
+    </nav>
+  </article>
+</div>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>

@@ -1,0 +1,28 @@
+{%- comment -%} Renders a single essay card. Pass {% include post-card.html post=post %} {%- endcomment -%}
+{%- assign post = include.post -%}
+{%- assign words = post.content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | plus: 1 -%}
+<article class="post-card"
+         data-pillars="{% for c in post.categories %}{{ c | downcase }} {% endfor %}{% for t in post.tags %}{{ t | downcase }} {% endfor %}">
+  {%- if post.image -%}
+  <a class="post-card-media" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ post.image | relative_url }}" alt="" loading="lazy">
+  </a>
+  {%- endif -%}
+  <div class="post-card-body">
+    {%- if post.categories.size > 0 -%}
+    <span class="post-card-pillar">{{ post.categories.first }}</span>
+    {%- endif -%}
+    <h3 class="post-card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+    {%- if post.excerpt -%}
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+    {%- endif -%}
+    <div class="post-card-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      <span class="dot">·</span>
+      <span>{{ minutes }} min read</span>
+    </div>
+  </div>
+</article>

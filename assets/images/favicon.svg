@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#16312A"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#B89B5E" stroke-width="2"/>
+  <text x="32" y="41" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700"
+        fill="#B89B5E" text-anchor="middle" letter-spacing="0.5">WQ</text>
+</svg>

@@ -1,0 +1,26 @@
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
+      <span class="brand-mark" aria-hidden="true">WQ</span>
+      <span class="brand-text">
+        <span class="brand-name">Wellness Quotient</span>
+        <span class="brand-tag">{{ site.tagline }}</span>
+      </span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav" aria-label="Primary">
+      {%- assign p = page.url | downcase -%}
+      <a href="{{ '/' | relative_url }}"        class="{% if page.url == '/' %}is-active{% endif %}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}"    class="{% if p contains '/blog' %}is-active{% endif %}">Journal</a>
+      <a href="{{ '/about/' | relative_url }}"   class="{% if p contains '/about' %}is-active{% endif %}">About</a>
+      <a class="nav-cta" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">
+        Speak with {{ site.contact.name }}
+      </a>
+    </nav>
+  </div>
+</header>

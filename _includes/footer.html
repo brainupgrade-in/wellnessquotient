@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <span class="brand-mark" aria-hidden="true">WQ</span>
+      <p class="footer-name">Wellness Quotient</p>
+      <p class="footer-blurb">{{ site.description }}</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>The Six Pillars</h4>
+      <ul>
+        {%- for pillar in site.pillars limit:6 -%}
+        <li><a href="{{ '/blog/' | relative_url }}?pillar={{ pillar.slug }}">{{ pillar.name }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">The Journal</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">About Dr. Ujwala</a></li>
+        <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Private Counsel</h4>
+      <p class="footer-blurb">Discreet, one-to-one guidance for those who ask.</p>
+      <a class="footer-cta" href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener">
+        {{ site.contact.name }} · @{{ site.contact.telegram_handle }}
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-base">
+    <p>&copy; {{ 'now' | date: "%Y" }} Wellness Quotient. Crafted with discretion.</p>
+    <p class="footer-fine">Editorial guidance, not medical advice. Consult your physician for personal care.</p>
+  </div>
+</footer>
